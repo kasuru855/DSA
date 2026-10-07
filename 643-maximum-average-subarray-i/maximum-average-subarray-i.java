@@ -5,15 +5,15 @@ class Solution {
             sum+=nums[i];
 
         }
-        int l=0,r=k,max=sum;
+        int max=sum;
+        int l=0,r=k;
         while(r<nums.length){
-            sum=sum-nums[l];
+            sum-=nums[l];
             l++;
-            sum=sum+nums[r];
+            sum+=nums[r];
+            max=Math.max(sum,max);
             r++;
-            max=Math.max(max,sum);
         }
-    return (double)max/k;
-        
+        return (double)max/k;
     }
 }
