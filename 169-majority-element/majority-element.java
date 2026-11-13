@@ -1,24 +1,13 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        int res=1;
-        int count=1;
-        if(nums.length==1){
-            return nums[0];
-        }
-        for(int i=0;i<nums.length-1;i++){
-        
-            if(nums[i]==nums[i+1]){
-                count++;
-            }else{
-                count=1;
-                
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        int aim=nums.length/2;
+        for(int i=0;i<nums.length;i++){
+            hm.put(nums[i],hm.getOrDefault(nums[i],0)+1);
+            if(hm.get(nums[i])>aim){
+                return nums[i];
             }
-        if((count)>(nums.length/2))
-        res=nums[i];
-
-        
         }
-        return res;
+        return 0;
     }
 }
